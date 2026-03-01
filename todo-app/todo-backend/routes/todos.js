@@ -35,12 +35,23 @@ singleRouter.delete('/', async (req, res) => {
 
 /* GET todo. */
 singleRouter.get('/', async (req, res) => {
-  res.sendStatus(405); // Implement this
+  res.send(req.todo)
 });
 
 /* PUT todo. */
 singleRouter.put('/', async (req, res) => {
-  res.sendStatus(405); // Implement this
+  const { text, done } = req.body
+
+  if (!text || !done ) {
+    return res.send({ error: "Request body is missing at least one parameter" }).status(400)
+  } else {
+    req.todo.text = text
+    req.todo.done = done
+
+    const savedTodo = await req.todo.save()
+
+    return res.send(savedTodo)
+  }
 });
 
 router.use('/:id', findByIdMiddleware, singleRouter)
