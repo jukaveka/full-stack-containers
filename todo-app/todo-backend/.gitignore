@@ -60,4 +60,8 @@ typings/
 # next.js build output
 .next
 
+# REST Client requests directory
 requests/
+
+# Persisting Redis data
+redis_data/
