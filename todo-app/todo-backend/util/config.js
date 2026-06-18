@@ -1,7 +1,13 @@
 require("dotenv").config()
 
-const MONGO_URL = process.env.MONGO_URL || undefined
-const REDIS_URL = process.env.REDIS_URL || undefined
+console.log(process.env.NODE_ENV)
+
+const MONGO_URL = process.env.NODE_ENV = "production"
+                    ? process.env.MONGO_URL || undefined
+                    : undefined
+const REDIS_URL = process.env.NODE_ENV = "production"
+                    ? process.env.REDIS_URL || undefined
+                    : undefined
 
 module.exports = {
   MONGO_URL,//: 'mongodb://the_username:the_password@localhost:3456/the_database',

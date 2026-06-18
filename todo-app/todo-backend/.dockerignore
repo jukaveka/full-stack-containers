@@ -2,4 +2,6 @@
 .gitignore
 node_modules
 Dockerfile
+dev.Dockerfile
 requests
+redis_data/
