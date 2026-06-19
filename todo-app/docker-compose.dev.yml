@@ -1,5 +1,6 @@
 include:
   - todo-frontend/docker-compose.dev.yml
+  - todo-backend/docker-compose.dev.yml
 
 services:
   reverse-proxy:
@@ -11,3 +12,4 @@ services:
     container_name: reverse-proxy
     depends_on:
       - app
+      - server
