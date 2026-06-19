@@ -1,0 +1,13 @@
+include:
+  - todo-frontend/docker-compose.dev.yml
+
+services:
+  reverse-proxy:
+    image: nginx:1.31.2-alpine
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: reverse-proxy
+    depends_on:
+      - app
