@@ -37,7 +37,7 @@ jobs:
           echo "Services are ready!"
           
       - name: Check running containers
-        run: docker ps
+        run: docker ps -a
 
       - name: Inspect backend container
         run: docker inspect todo-backend-prod
@@ -80,6 +80,8 @@ jobs:
           docker compose logs app
           echo "=== Nginx logs ==="
           docker compose logs nginx
+          echo "=== Mongo logs ==="
+          docker compose logs mongo
 
       - name: Clean up Docker containers
         if: always()
